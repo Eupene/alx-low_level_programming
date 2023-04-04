@@ -1,11 +1,10 @@
 #include "lists.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
  * print_listint_safe - function that prints a linked list with a loop safely.
  * @head: pointer to the 1st node of the linked list
- * Return: new_node
+ * Return: number of nodes in the list
  */
 size_t print_listint_safe(const listint_t *head)
 {
@@ -27,11 +26,13 @@ size_t print_listint_safe(const listint_t *head)
 			if (tmp_n == l_n)
 			{
 				printf("-> [%p] %d\n", (void *)tmp_n, tmp_n->n);
-				exit(98);
+				return (counter);
 			}
 			l_n = l_n->next;
 			new_n++;
 		}
+		if (!head)
+			exit(98);
 	}
 	return (counter);
 }
